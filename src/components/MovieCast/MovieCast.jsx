@@ -11,30 +11,30 @@ export default function MovieCast() {
     const { movieId } = useParams();
     const [cast, setCast] = useState([]);
     const [isError, setIsError] = useState(false);
-    const [loader, setLoader] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         async function getMovieCast() {
             try {
-                setLoader(true);
+                setIsLoading(true);
                 const data = await fetchMovieCast(movieId);
                 setCast(data);
             } catch {
                 setIsError(true);
             } finally {
-                setLoader(false);
+                setIsLoading(false);
             }
         }
             getMovieCast();
         
     }, [movieId]);
 
-    const noCast = !loader && cast.length === 0;
-    const hasCast = !loader && cast.length > 0;
+    const noCast = !isLoading && cast.length === 0;
+    const hasCast = !isLoading && cast.length > 0;
 
     return <div className={css.castWrapper}>
         <h2 className={css.title}>The Cast</h2>
-         {loader && <Loader />}
+         {isLoading && <Loader />}
         {hasCast && <ul className={css.castList}>
             {cast.map(({ id, name, character, profile_path }) => (
                 <li key={`${id}-${character}`} className={css.listItem}>

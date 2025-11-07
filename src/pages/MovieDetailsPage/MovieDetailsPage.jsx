@@ -13,31 +13,31 @@ export default function MovieDetailsPage() {
     const { movieId } = useParams();
     const [movie, setMovie] = useState([]);
     const [isError, setIsError] = useState(false);
-    const [loader, setLoader] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     
     useEffect(() => {
         if (!movieId) return;
         async function getMovieDetails() {
             try {
-                setLoader(true);
+                setIsLoading(true);
                 const data = await fetchMovie(movieId);      
                 setMovie(data);
               } catch {
                 setIsError(true);
               } finally {
-                setLoader(false);
+                setIsLoading(false);
             }
             }
             getMovieDetails();
     }, [movieId]);
 
     const imageUrl = movie.poster_path ? `https://image.tmdb.org/t/p/w200${movie.poster_path}` : defaultImg;
-    const isMovieReady = !loader && !isError && movie;
+    const isMovieReady = !isLoading && !isError && movie;
 
 
     return (
         <div className={css.container} >
-            {loader && <Loader />}
+            {isLoading && <Loader />}
             {isError && <NotFoundPage />}
             {isMovieReady &&
                 <>

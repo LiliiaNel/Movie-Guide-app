@@ -11,30 +11,30 @@ export default function MovieReviews() {
     const { movieId } = useParams();
     const [reviews, setReviews] = useState([]);
     const [isError, setIsError] = useState(false);
-    const [loader, setLoader] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
   
 
     useEffect(() => {
         async function getMovieReviews() {
           try {
-            setLoader(true);
+            setIsLoading(true);
             const results = await fetchMovieReviews(movieId);      
             setReviews(results);
           } catch {
               setIsError(true);
           } finally {
-            setLoader(false);
+            setIsLoading(false);
         }
         }
         getMovieReviews();
     }, [movieId]); 
   
-  const noReviews = !loader && reviews.length === 0;
-  const hasReviews = !loader && reviews.length > 0;
+  const noReviews = !isLoading && reviews.length === 0;
+  const hasReviews = !isLoading && reviews.length > 0;
     
     return <div className={css.reviewsWrapper}>
       <h2 className={css.title}>Reviews</h2>
-      {loader && <Loader />}
+      {isLoading && <Loader />}
       {hasReviews &&(
         <ul className={css.reviewsList}>
           {reviews.map(({ id, author_details, content, created_at }) => (

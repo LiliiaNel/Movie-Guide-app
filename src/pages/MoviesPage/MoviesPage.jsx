@@ -16,7 +16,7 @@ export default function MoviesPage() {
 
   const [movies, setMovies] = useState([]);
   const [isError, setIsError] = useState(false);
-  const [loader, setLoader] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!debouncedQuery) {
@@ -27,25 +27,25 @@ export default function MoviesPage() {
 
     async function getMoviesOnSearch() {
       try {
-        setLoader(true);
+        setIsLoading(true);
         setIsError(false);
         const results = await fetchSearchedMovies(debouncedQuery);
         setMovies(results);
       } catch {
         setIsError(true);
       } finally {
-        setLoader(false);
+        setIsLoading(false);
     }
     }
 
     getMoviesOnSearch();
   }, [debouncedQuery]);
 
-  const noResults = !loader && !isError && movies.length === 0 && query;
+  const noResults = !isLoading && !isError && movies.length === 0 && query;
 
   return <div className={css.container}>       
     <SearchForm />
-    {loader && <Loader />}
+    {isLoading && <Loader />}
     {movies.length > 0 && <MovieList movies={movies} />}
     {isError && <NotFoundPage />}
     {noResults && <p className={css.noResults}>No results found for "{query}"</p>}

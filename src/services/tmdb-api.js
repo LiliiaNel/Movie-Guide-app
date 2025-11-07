@@ -8,15 +8,22 @@ const TMDBAPI = axios.create({
   },
 });
 
-export async function fetchMovieList() {
-  const response = await TMDBAPI.get("/trending/movie/day", {
-    params: {
-      language: "en-US",
-      page: 1,
-    },
-  });
-  return response.data.results;
+
+export async function fetchMovieList(page = 1) {
+  try {
+    const response = await TMDBAPI.get("/trending/movie/day", {
+      params: {
+        language: "en-US",
+        page,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Failed to fetch trending movies:", error.message);
+    return { results: [], total_pages: 0, page };
+  }
 }
+
 
 export async function fetchSearchedMovies(debouncedQuery) {
   const response = await TMDBAPI.get(`search/movie?query=${debouncedQuery}`);
