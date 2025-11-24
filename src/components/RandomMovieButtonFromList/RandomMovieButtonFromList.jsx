@@ -21,16 +21,25 @@ export default function RandomMovieButtonFromList({ movies = [] }) {
     }
     navigate(`/movies/${id}`);
   }
-
-  return (
-    <button
-      onClick={goRandom}
-      disabled={loading}
-      aria-label="Random movie"
-      className="inline-flex items-center gap-2 px-2 py-1 rounded-md text-[#e5e7eb] hover:text-[#ffb347] transition"
-    >
-      < GiPerspectiveDiceSixFacesRandom  className="w-7 h-7" />
-      <span className="sr-only">Random movie</span>
-    </button>
-  );
+    return (<button
+    onClick={goRandom}
+    disabled={loading}
+    aria-label="Random movie"
+    className="
+      group inline-flex items-center gap-2 px-2 py-1 rounded-md
+      bg-transparent text-[#f3f4f6] 
+      transition-all duration-200 ease-in-out
+    "
+  >
+    <GiPerspectiveDiceSixFacesRandom
+      className="
+        w-8 h-8
+        transition-transform duration-300 ease-in-out
+        group-hover:rotate-12
+        group-hover:scale-125
+        group-hover:text-[#ffb347]
+      "
+    />
+    <span className="sr-only">Random movie</span>
+  </button>)
 }

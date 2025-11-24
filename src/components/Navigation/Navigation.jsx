@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 
-export const Styles = {
+const Styles = {
   wrapper: "flex-shrink-0",
   navBaseRow: "flex gap-8 items-center justify-center",
   navBaseCol: "flex flex-col gap-3 items-start",

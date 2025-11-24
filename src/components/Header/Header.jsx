@@ -73,43 +73,46 @@ export default function Header() {
     : null;
 
   return (
-    <header className={Styles.header} role="banner">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-4 flex items-center justify-between">
-      {/* logo */}
-      <div className={Styles.leftCell}>
-        <Link to="/" className={Styles.logoLink} aria-label="Movie Guide home">
-          <PiFilmSlate className={Styles.logoIcon} />
-          <span className={Styles.logoText}>Movie Guide</span>
-        </Link>
-      </div>
+      <header className={Styles.header} role="banner">
+        <div className={Styles.container}>
+          <div className={Styles.inner}>
+            <div className={Styles.leftCell}>
+              <Link to="/" className={Styles.logoLink} aria-label="Movie Guide home">
+                <PiFilmSlate className={Styles.logoIcon} />
+                <span className={Styles.logoText}>Movie Guide</span>
+              </Link>
+            </div>
 
-      {/* nav for desktop */}
-      <div className={Styles.navDesktop} aria-hidden={open ? "true" : "false"}>
-        <Navigation />
-      </div>
+            <nav className={Styles.navDesktop} aria-label="Main navigation" aria-hidden={open ? "true" : "false"}>
+              <Navigation />
+            </nav>
 
-      {/* random movie + mobile menu */}
-      <div className={Styles.rightCell}>
-        <RandomMovieButtonFromList movies={moviesList} />
-        <button
-          ref={btnRef}
-          type="button"
-          aria-expanded={open}
-          aria-haspopup="menu"
-          aria-label={open ? "Close menu" : "Open menu"}
-          className={Styles.moreButton}
-          onClick={() => setOpen((s) => !s)}
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <circle cx="5" cy="12" r="2" />
-            <circle cx="12" cy="12" r="2" />
-            <circle cx="19" cy="12" r="2" />
-          </svg>
-        </button>
-      </div>
+            {/* randomMovies button + mobile menu */}
+            <div className={Styles.rightCell}>
+              <div className={Styles.randomWrapper}>
+                <RandomMovieButtonFromList movies={moviesList} />
+              </div>
 
-      {popover}
-      </div>
-    </header>
-  );
+              <button
+                ref={btnRef}
+                type="button"
+                aria-expanded={open}
+                aria-haspopup="menu"
+                aria-label={open ? "Close menu" : "Open menu"}
+                className={Styles.moreButton}
+                onClick={() => setOpen((s) => !s)}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <circle cx="5" cy="12" r="2" />
+                  <circle cx="12" cy="12" r="2" />
+                  <circle cx="19" cy="12" r="2" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {popover}
+      </header>
+    );
 }

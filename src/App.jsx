@@ -14,8 +14,9 @@ const MovieReviews = lazy(() => import ('./components/MovieReviews/MovieReviews'
 
 function App() {
   return (
-    <div>
+    <div className="min-h-screen grid grid-rows-[auto_1fr_auto]">
       <Header />
+      <main className="flex-1">
       <Suspense fallback={<p>Loading page ...</p>}>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -27,6 +28,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
           </Routes>
       </Suspense>
+      </main>
       <Footer />
     </div>
   )

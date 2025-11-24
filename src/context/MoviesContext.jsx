@@ -1,4 +1,3 @@
-// src/context/MoviesContext.jsx
 import { createContext, useContext, useState, useEffect } from "react";
 import { fetchMovieList } from "../services/tmdb-api";
 
@@ -11,7 +10,6 @@ export function MoviesProvider({ children }) {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  // ← EXACTLY your HomePage logic
   useEffect(() => {
     async function load() {
       try {
