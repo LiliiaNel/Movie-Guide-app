@@ -136,7 +136,7 @@ return (
                 Reviews
               </NavLink>
 
-            <div className="mt-5">
+            <div>
               <Suspense fallback={<p className="text-sm text-[#d9d4cc]">Loading...</p>}>
                 <Outlet />
               </Suspense>

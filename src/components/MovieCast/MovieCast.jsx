@@ -4,6 +4,7 @@ import { fetchMovieCast } from "../../services/tmdb-api";
 import defaultImg from "../../constants/images";
 import CastItem from "../CastItem/CastItem";
 import Loader from '../Loader/Loader';
+import Button from "../Button/Button";
 
 
 export default function MovieCast() {
@@ -21,7 +22,6 @@ export default function MovieCast() {
             try {
                 setIsLoading(true);
                 const data = await fetchMovieCast(movieId);
-                // setCast(data);
                 setCast(Array.isArray(data) ? data : []);
                 setVisibleCount(INITIAL_COUNT); 
             } catch {
@@ -39,19 +39,23 @@ export default function MovieCast() {
     const hasCast = !isLoading && cast.length > 0;
 
     const handleShowMore = () => {
-        setVisibleCount((v) => Math.min(cast.length, v + LOAD_MORE_STEP));
+        setVisibleCount((prevCount) => Math.min(cast.length, prevCount + LOAD_MORE_STEP));
     }
 
     const handleShowAll = () => {
         setVisibleCount(cast.length);
     }
 
+    const handleShowLess = () => {
+      setVisibleCount(INITIAL_COUNT);
+    }
+
     const visibleItems = cast.slice(0, visibleCount);
 
   return (
-    <section className="pt-5 mt-8" aria-labelledby="cast-heading">
+    <section className="pt-10" aria-labelledby="cast-heading">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-        <h2 id="cast-heading" className="text-2xl text-[#ffb347] mb-4 text-center">
+        <h2 id="cast-heading" className="text-2xl text-[#ffb347] mb-6 text-center">
           The Cast
         </h2>
 
@@ -87,53 +91,11 @@ export default function MovieCast() {
               <div className="mt-6 flex items-center justify-center gap-3">
                 {visibleCount < cast.length ? (
                   <>
-                    <button
-                      onClick={handleShowMore}
-                      className="
-                        inline-flex items-center justify-center
-                        px-4 py-2
-                        text-xs font-medium
-                        rounded-md
-                        border border-[#cd8e37]
-                        text-[#e3e0dc]
-                        bg-transparent
-                        hover:bg-[#cd8e37]/20
-                        transition-colors duration-300"
-                    >
-                      Show more
-                    </button>
-                    <button
-                      onClick={handleShowAll}
-                    
-                    className="
-                        inline-flex items-center justify-center
-                        px-4 py-2
-                        text-xs font-medium
-                        rounded-md
-                        border border-[#cd8e37]
-                        text-[#e3e0dc]
-                        bg-transparent
-                        hover:bg-[#cd8e37]/20
-                        transition-colors duration-300">
-                      Show all
-                    </button>
+                    <Button onClick={handleShowMore}>Show more</Button>
+                    <Button onClick={handleShowAll}>Show all</Button>
                   </>
                 ) : (
-                  <button
-                    onClick={() => setVisibleCount(INITIAL_COUNT)}
-                    className="
-                        inline-flex items-center justify-center
-                        px-4 py-2
-                        text-xs font-medium
-                        rounded-md
-                        border border-[#cd8e37]
-                        text-[#e3e0dc]
-                        bg-transparent
-                        hover:bg-[#cd8e37]/20
-                        transition-colors duration-300"
-                  >
-                    Collapse
-                  </button>
+                  <Button onClick={handleShowLess}>Show less</Button>
                 )}
               </div>
             )}
