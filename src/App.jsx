@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { Routes, Route} from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from "./components/Footer/Footer";
+import BackToTopButton from './components/BackToTopButton/BackToTopButton';
 
 const HomePage = lazy(()=> import ('./pages/HomePage/HomePage'));
 const MoviesPage = lazy(()=> import ('./pages/MoviesPage/MoviesPage'));
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className="min-h-screen grid grid-rows-[auto_1fr_auto]">
       <Header />
+      <BackToTopButton />
       <main className="flex-1">
       <Suspense fallback={<p>Loading page ...</p>}>
         <Routes>

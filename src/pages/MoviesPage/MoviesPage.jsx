@@ -1,4 +1,3 @@
-import css from './MoviesPage.module.css';
 import MovieList from '../../components/MovieList/MovieList';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
@@ -43,11 +42,11 @@ export default function MoviesPage() {
 
   const noResults = !isLoading && !isError && movies.length === 0 && query;
 
-  return <div className={css.container}>       
+  return <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-12">       
     <SearchForm />
     {isLoading && <Loader />}
     {movies.length > 0 && <MovieList movies={movies} />}
     {isError && <NotFoundPage />}
-    {noResults && <p className={css.noResults}>No results found for "{query}"</p>}
+    {noResults && <p className="mx-auto text-center text-[#e3e0dc]">No results found for "{query}"</p>}
     </div>
  }

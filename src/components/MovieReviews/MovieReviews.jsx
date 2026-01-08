@@ -67,7 +67,6 @@ export default function MovieReviews() {
     
  return (
     <section className="pt-8" aria-labelledby="reviews-heading">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <h2 id="reviews-heading" className="text-2xl text-[#ffb347] mb-6 text-center">Reviews</h2>
 
       {isLoading && <Loader />}
@@ -75,16 +74,15 @@ export default function MovieReviews() {
 
       {hasReviews && (
         <>
-            <ul className="space-y-4 w-full max-w-3xl mx-auto p-0 list-none">
+            <ul className="space-y-4 w-full max-w-3xl mx-auto p-0 list-none mb-6">
               {visibleReviews.map((review) => {
                 const id = review.id || review.created_at;
                   return ( <li
                         key={id}
                         className="
                           bg-yellow-400/8 border border-yellow-400/20 rounded-lg
-                          w-full p-3
-                          shadow-[0_0_10px_rgba(255,179,71,0.12)]
-                          transition-transform duration-200 hover:scale-105
+                          w-full p-3 transition-transform duration-200
+                          hover:bg-yellow-400/10 hover:border-yellow-400/30
                         "
                       >
                         <ReviewsItem
@@ -99,7 +97,7 @@ export default function MovieReviews() {
 
           {/* pagination */}
           {reviews.length > INITIAL_COUNT && (
-            <div className="mt-6 flex items-center justify-center gap-3">
+            <div className="flex items-center justify-center gap-3">
               {visibleCount < reviews.length ? (
                 <>
                   <Button onClick={handleShowMore}>Show more</Button>
@@ -117,7 +115,6 @@ export default function MovieReviews() {
                 We don't have any reviews for this movie yet.
               </p>
             )}
-        </div>
      </section>
     );
 }

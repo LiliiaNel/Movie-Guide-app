@@ -54,7 +54,6 @@ export default function MovieCast() {
 
   return (
     <section className="pt-10" aria-labelledby="cast-heading">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <h2 id="cast-heading" className="text-2xl text-[#ffb347] mb-6 text-center">
           The Cast
         </h2>
@@ -65,16 +64,17 @@ export default function MovieCast() {
         {hasCast && (
           <>
             <ul className="grid gap-5 p-0 list-none w-full
-               grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6
-               max-w-full mx-auto">
+               grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6
+               max-w-full mx-auto mb-6">
             {visibleItems.map(({ id, name, character, profile_path }) => (
                 <li
                 key={`${id}-${character}`}
                 className="
                     bg-yellow-400/8 border border-yellow-400/20 rounded-lg
-                    w-full p-3 text-center
-                    shadow-[0_0_10px_rgba(255,179,71,0.12)]
-                    transition-transform duration-200 hover:scale-105
+                    p-3 text-center
+                    max-w-[260px] md:max-w-none mx-auto
+                    transition-transform duration-200
+                    hover:bg-yellow-400/10 hover:border-yellow-400/30
                 "
                 >
                 <CastItem
@@ -88,7 +88,7 @@ export default function MovieCast() {
             </ul>
             
             {cast.length > INITIAL_COUNT && (
-              <div className="mt-6 flex items-center justify-center gap-3">
+              <div className="flex items-center justify-center gap-3">
                 {visibleCount < cast.length ? (
                   <>
                     <Button onClick={handleShowMore}>Show more</Button>
@@ -107,7 +107,6 @@ export default function MovieCast() {
             No cast information available.
           </p>
         )}
-      </div>
     </section>
   );
 }

@@ -24,6 +24,9 @@ export default function MovieItem({ movie, location }) {
             min-h-[180px] sm:min-h-[200px] md:min-h-[220px]
            aspect-2/3"
         />
+        <span className="absolute top-4 right-4 badge badge-sm badge-outline text-xs font-medium bg-[#2e3c51]/50 text-[#ffb347]">
+                  {movie.vote_average ? movie.vote_average.toFixed(1) : '—'}
+                </span>
       </div>
 
       <div className="w-full py-5 flex justify-center items-center text-center font-medium text-[16px] transition-colors duration-300">

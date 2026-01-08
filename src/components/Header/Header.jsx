@@ -3,7 +3,6 @@ import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { PiFilmSlate } from "react-icons/pi";
 import Navigation from "../Navigation/Navigation";
-import { Styles } from "./header.styles.js";
 import RandomMovieButtonFromList from "../RandomMovieButtonFromList/RandomMovieButtonFromList.jsx";
 import { useMovies } from "../../context/MoviesContext.jsx"; 
 
@@ -53,18 +52,18 @@ export default function Header() {
   const popover = open
     ? createPortal(
         <div
-          id="header-popover-panel"
-          role="menu"
-          aria-label="Mobile navigation"
-          style={{
-            position: "absolute",
-            top: `${panelPos.top}px`,
-            left: `${Math.max(8, panelPos.left)}px`,
-            width: `${panelPos.width}px`,
-            zIndex: 9999,
-          }}
+        id="header-popover-panel"
+        role="menu"
+        aria-label="Mobile navigation"
+        style={{
+          position: "absolute",
+          top: `${panelPos.top}px`,
+          left: `${Math.max(8, panelPos.left)}px`,
+          width: `${panelPos.width}px`,
+          zIndex: 9999,
+        }}
         >
-          <div className={Styles.popoverPanel}>
+          <div className="bg-[#2e3c51]/95 border border-[#333] rounded-lg p-3 shadow-lg backdrop-blur-sm z-50">
             <Navigation vertical onNavigate={handleNavigate} />
           </div>
         </div>,
@@ -73,46 +72,83 @@ export default function Header() {
     : null;
 
   return (
-      <header className={Styles.header} role="banner">
-        <div className={Styles.container}>
-          <div className={Styles.inner}>
-            <div className={Styles.leftCell}>
-              <Link to="/" className={Styles.logoLink} aria-label="Movie Guide home">
-                <PiFilmSlate className={Styles.logoIcon} />
-                <span className={Styles.logoText}>Movie Guide</span>
-              </Link>
-            </div>
-
-            <nav className={Styles.navDesktop} aria-label="Main navigation" aria-hidden={open ? "true" : "false"}>
-              <Navigation />
-            </nav>
-
-            {/* randomMovies button + mobile menu */}
-            <div className={Styles.rightCell}>
-              <div className={Styles.randomWrapper}>
-                <RandomMovieButtonFromList movies={moviesList} />
-              </div>
-
-              <button
-                ref={btnRef}
-                type="button"
-                aria-expanded={open}
-                aria-haspopup="menu"
-                aria-label={open ? "Close menu" : "Open menu"}
-                className={Styles.moreButton}
-                onClick={() => setOpen((s) => !s)}
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <circle cx="5" cy="12" r="2" />
-                  <circle cx="12" cy="12" r="2" />
-                  <circle cx="19" cy="12" r="2" />
-                </svg>
-              </button>
-            </div>
-          </div>
+  <header
+    role="banner"
+    className="
+      w-full bg-linear-to-r from-[#2e3c51] to-[#111827]
+      border-b border-[#333]
+      shadow-[0_2px_4px_rgba(0,0,0,0.3)]
+      text-[#e5e7f0]
+    "
+  >
+    <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="h-16 flex items-center justify-between gap-4">
+        
+        {/* logo */}
+        <div className="flex items-center gap-1">
+          <Link
+            to="/"
+            aria-label="Movie Guide home"
+            className="
+              inline-flex items-center gap-1 shrink-0
+              no-underline transition-all duration-300
+              hover:-translate-y-0.5 hover:brightness-110
+            "
+          >
+            <PiFilmSlate className="w-[28px] h-[28px] text-[#f97316] shrink-0" />
+            <span
+              className="
+                text-[20px] md:text-[26px] font-bold leading-none
+                bg-linear-to-r from-[#eca22b] to-[#cc5d08]
+                bg-clip-text text-transparent
+              "
+            >
+              Movie Guide
+            </span>
+          </Link>
         </div>
 
-        {popover}
-      </header>
-    );
+        {/* desktop nav */}
+        <nav
+          aria-label="Main navigation"
+          aria-hidden={open ? "true" : "false"}
+          className="hidden md:flex md:flex-1 md:justify-center"
+        >
+          <Navigation />
+        </nav>
+
+        {/* random button + mobile menu */}
+        <div className="flex items-center gap-3">
+          <div className="inline-flex items-center justify-center">
+            <RandomMovieButtonFromList movies={moviesList} />
+          </div>
+
+          <button
+            ref={btnRef}
+            type="button"
+            aria-expanded={open}
+            aria-haspopup="menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((s) => !s)}
+            className="
+              inline-flex items-center justify-center p-2 rounded-md
+              text-[#e5e7eb] md:hidden
+              focus:outline-none focus:ring-2 focus:ring-[#ffb347] focus:ring-offset-2
+            "
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <circle cx="5" cy="12" r="2" />
+              <circle cx="12" cy="12" r="2" />
+              <circle cx="19" cy="12" r="2" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    {popover}
+  </header>
+);
+
 }

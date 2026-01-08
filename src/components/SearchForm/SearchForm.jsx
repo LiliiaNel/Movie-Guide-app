@@ -1,5 +1,4 @@
 import { useSearchParams } from 'react-router-dom';
-import css from './SearchForm.module.css';
 
 export default function SearchForm() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -17,15 +16,41 @@ export default function SearchForm() {
         setSearchParams(nextSearchParams);
     };
 
-     return <div className={css.container}>
-         <form className={css.form} onSubmit={(event) => event.preventDefault()}>
-             <input className={css.input}
-                 type="text"
-                 name="movieSearch"
-                 value={query}
-                 onChange={changeSearchQuery}
-                 placeholder="Type to search..."
-                 autoComplete="off" />
-         </form>
-       </div>
+    return (
+    <div>
+      <form
+        onSubmit={e => e.preventDefault()}
+        className="
+          flex items-center gap-2.5
+          px-4 py-2.5
+          rounded-lg
+          max-w-[400px]
+          mx-auto
+          mb-5
+        "
+      >
+        <input
+          type="text"
+          name="movieSearch"
+          value={query}
+          onChange={changeSearchQuery}
+          placeholder="Type to search..."
+          autoComplete="off"
+          className="
+            grow
+            px-3.5 py-2.5
+            bg-transparent
+            border-2 border-[#cd8e37]
+            rounded-md
+            text-base text-[#e3e0dc]
+            placeholder:text-[#ffb347]
+            transition-colors duration-300
+            focus:outline-none
+            focus:border-[#f97316]
+            focus:shadow-[0_0_6px_rgba(255,179,71,0.4)]
+          "
+        />
+      </form>
+    </div>
+  );
  }

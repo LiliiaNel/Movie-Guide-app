@@ -64,7 +64,7 @@ return (
                   alt={`${movie.title} poster`}
                   className="w-full h-auto block object-cover"
                 />
-                <span className="absolute top-3 left-3 badge badge-sm badge-ghost text-xs text-[#f97316]">
+                <span className="absolute top-3 left-3 badge badge-sm badge-outline text-xs  bg-[#2e3c51]/50 text-[#f97316]">
                   {movie.vote_average ? movie.vote_average.toFixed(1) : '—'}
                 </span>
               </div>
@@ -72,6 +72,15 @@ return (
                 <FaCalendarAlt className="w-3 h-3 text-[#f97316]" />
                 {movie.release_date || 'Unknown release'}
               </p>
+            </div>
+            {/* back btn mobile */}
+            <div className="flex md:hidden">
+              <Link
+                to={backLink.current}
+                className="inline-flex items-center justify-center w-20 rounded-md border border-[#cd8e37] bg-transparent text-[#e3e0dc] text-xs px-4 py-2 transition-colors duration-300 hover:bg-[#cd8e37]/15 hover:border-[#ffaa4d] active:scale-[0.97]"
+              >
+                ← Back
+              </Link>
             </div>
             {/* Right - title, badges, overview */}
             <div className="flex-1">
@@ -96,7 +105,7 @@ return (
                 </div>
 
                 {/* back btn*/}
-                <div className="flex items-center gap-3">
+                <div className="hidden md:flex items-center gap-3">
                   <Link
                     to={backLink.current}
                     className="inline-flex items-center justify-center w-20 rounded-md border border-[#cd8e37] bg-transparent text-[#e3e0dc] text-xs px-4 py-2 transition-colors duration-300 hover:bg-[#cd8e37]/15 hover:border-[#ffaa4d] active:scale-[0.97]"
@@ -136,10 +145,13 @@ return (
                 Reviews
               </NavLink>
 
-            <div>
-              <Suspense fallback={<p className="text-sm text-[#d9d4cc]">Loading...</p>}>
-                <Outlet />
-              </Suspense>
+             <div className="w-full">
+              {/* this inner wrapper constrains and centers the routed page content */}
+              <div className="w-full max-w-4xl mx-auto mt-5">
+                <Suspense fallback={<p className="text-sm text-[#d9d4cc]">Loading...</p>}>
+                  <Outlet />
+                </Suspense>
+            </div>
             </div>
           </div>
           </div>

@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 
 const Styles = {
   wrapper: "flex-shrink-0",
-  navBaseRow: "flex gap-8 items-center justify-center",
-  navBaseCol: "flex flex-col gap-3 items-start",
+  navBaseRow: "flex gap-11 items-center justify-center",
+  navBaseCol: "flex flex-col gap-4 items-start",
   linkBase:
     "text-[#e5e7eb] text-[19px] transition-colors duration-300 hover:text-[#ffb347]",
   active: "text-[#f97316] font-bold",
@@ -26,6 +26,10 @@ export default function Navigation({ vertical = false, onNavigate }) {
         <NavLink to="/movies" className={buildLinkClass} onClick={onNavigate}>
           Movies
         </NavLink>
+{/* 
+                <NavLink to="/movies" className={buildLinkClass} onClick={onNavigate}>
+          Series
+        </NavLink> */}
       </nav>
     </div>
   );
