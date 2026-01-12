@@ -30,7 +30,7 @@ export default function BackToTopButton() {
         focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#ffb347]
       "
     >
-      <MdOutlineKeyboardDoubleArrowUp />
+      <MdOutlineKeyboardDoubleArrowUp className="w-8 h-8"/>
     </button>
   );
 }

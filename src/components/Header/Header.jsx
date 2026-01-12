@@ -20,7 +20,7 @@ export default function Header() {
     // keeps panel right-aligned
     const left = rect.right - panelPos.width + window.scrollX;
     setPanelPos({ top, left, width: panelPos.width });
-  }, [open]); 
+  }, [open, panelPos.width]); 
 
   // close on outside click or Escape
   useEffect(() => {
@@ -95,7 +95,7 @@ export default function Header() {
               hover:-translate-y-0.5 hover:brightness-110
             "
           >
-            <PiFilmSlate className="w-[28px] h-[28px] text-[#f97316] shrink-0" />
+            <PiFilmSlate className="w-7 h-7 text-[#f97316] shrink-0" />
             <span
               className="
                 text-[20px] md:text-[26px] font-bold leading-none

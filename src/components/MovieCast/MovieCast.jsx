@@ -72,7 +72,7 @@ export default function MovieCast() {
                 className="
                     bg-yellow-400/8 border border-yellow-400/20 rounded-lg
                     p-3 text-center
-                    max-w-[260px] md:max-w-none mx-auto
+                    max-w-40 min-h-[310px] md:max-w-none mx-auto
                     transition-transform duration-200
                     hover:bg-yellow-400/10 hover:border-yellow-400/30
                 "

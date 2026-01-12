@@ -1,7 +1,6 @@
 import Socials from "../Socials/Socials";
 
 export default function Footer() {
-  // const handleTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <footer
@@ -20,19 +19,6 @@ export default function Footer() {
           <p className="text-sm">© {new Date().getFullYear()} Movie Guide</p>
           <p className="mt-1 text-xs text-[#cbd5e1]">Providing reliable movie info — built with ❤️</p>
         </div>
-
-        {/* <div className="w-full md:w-auto flex justify-center md:justify-end">
-          <button
-            onClick={handleTop}
-            aria-label="Back to top"
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm text-sm
-                       border border-[#ffb347] text-[#ffb347] bg-transparent
-                       transition-colors duration-200 hover:bg-[#ffb347] hover:text-[#0f1720]
-                       focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#ffb347]"
-          >
-            ↑ Back to top
-          </button>
-        </div> */}
       </div>
     </footer>
   );

@@ -58,7 +58,7 @@ return (
           <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-7 mb-7">
             {/* Left - poster */}
             <div className="shrink-0">
-              <div className="relative rounded-xl overflow-hidden w-[160px] sm:w-[180px] md:w-[220px] mb-3">
+              <div className="relative rounded-xl overflow-hidden w-40 sm:w-[180px] md:w-[220px] mb-3">
                 <img
                   src={imageUrl}
                   alt={`${movie.title} poster`}
@@ -92,12 +92,14 @@ return (
                   <p className="text-sm text-[#d9d4cc] text-left mb-3">{movie.tagline || ''}</p>
                   <div className="flex flex-wrap gap-2 items-center mb-5">
                     {movie.genres?.slice(0, 4).map(g => (
-                      <span key={g.id} className="badge badge-xs badge-outline text-[#ffd7a8] border-yellow-400/40">
+                      <span key={g.id} className="badge badge-xs text-sm badge-outline text-[#ffd7a8] border-yellow-400/40 transition-transform duration-200
+                    hover:bg-yellow-400/10 hover:border-yellow-400/30">
                         {g.name}
                       </span>
                     ))}
                     {movie.runtime && (
-                      <span className="badge badge-xs text-sm bg-transparent border border-yellow-400/20 text-[#ffd7a8]">
+                      <span className="badge badge-xs text-sm bg-transparent border border-yellow-400/20 text-[#ffd7a8] transition-transform duration-200
+                    hover:bg-yellow-400/10 hover:border-yellow-400/30">
                         <FaClock className="w-3 h-3 inline mr-1" /> {movie.runtime}m
                       </span>
                     )}
