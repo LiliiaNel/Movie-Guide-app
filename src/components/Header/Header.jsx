@@ -133,7 +133,8 @@ export default function Header() {
             className="
               inline-flex items-center justify-center p-2 rounded-md
               text-[#e5e7eb] md:hidden
-              focus:outline-none focus:ring-2 focus:ring-[#ffb347] focus:ring-offset-2
+              focus:outline-none focus:ring-2 focus:ring-[#ffb347] 
+              hover:bg-white/5 active:scale-95 transition
             "
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

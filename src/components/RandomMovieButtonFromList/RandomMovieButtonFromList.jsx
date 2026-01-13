@@ -25,12 +25,13 @@ export default function RandomMovieButtonFromList({ movies = [] }) {
     onClick={goRandom}
     disabled={loading}
     aria-label="Random movie"
+    title="Random movie"
     className="
       group inline-flex items-center gap-2 px-2 py-1 rounded-md
       bg-transparent text-[#f3f4f6] 
       transition-all duration-200 ease-in-out
     "
-  >
+  ><span className="sr-only md:not-sr-only md:inline text-[#e5e7eb] text-[16px] transition-colors duration-300 hover:text-[#ffb347]">Random movie</span>
     <GiPerspectiveDiceSixFacesRandom
       className="
         w-8 h-8
@@ -40,6 +41,6 @@ export default function RandomMovieButtonFromList({ movies = [] }) {
         group-hover:text-[#ffb347]
       "
     />
-    <span className="sr-only">Random movie</span>
+    
   </button>)
 }
