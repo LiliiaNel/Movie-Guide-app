@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {  GiPerspectiveDiceSixFacesRandom } from "react-icons/gi";
+import toast from "react-hot-toast";
 
 export default function RandomMovieButtonFromList({ movies = [] }) {
   const [loading, setLoading] = useState(false);
@@ -8,7 +9,7 @@ export default function RandomMovieButtonFromList({ movies = [] }) {
 
   function goRandom() {
     if (!movies.length) {
-      alert("No movies available"); // to be substituted with toast notification later
+      toast.error("No movies available");
       return;
     }
     setLoading(true);
@@ -16,7 +17,7 @@ export default function RandomMovieButtonFromList({ movies = [] }) {
     const id = movies[idx].id ?? movies[idx].movieId ?? null;
     setLoading(false);
     if (!id) {
-      alert("Movie has no id"); // to be substituted with toast notification later
+       toast.error("Movie is not found");
       return;
     }
     navigate(`/movies/${id}`);

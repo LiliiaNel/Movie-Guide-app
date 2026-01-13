@@ -1,12 +1,65 @@
-# React + Vite
+**Movie Guide** is a small personal project created for practice and for my frontend portfolio.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+It's a simple web app for browsing and exploring movies, focused on clean layout, responsive design, and comfortable navigation.
 
-Currently, two official plugins are available:
+The app allows you to browse titles, open movie details, and use a **Random Movie** button to discover something new.
+All movie data is powered by the **TMDB (The Movie Database) API**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Browse and explore trending movies from TMDB 
+- Search movies using the built-in search input  
+- View detailed information for each movie including cast and reviews  
+- A button to discover a random movie
+- Fully responsive (mobile / tablet / desktop)  
+- Accessible navigation (keyboard, screen readers, ARIA roles)
+- Modern design with Tailwind CSS + DaisyUI  
+
+---
+
+## 🛠️ Tech Stack
+
+**React**|**React Router**|**Tailwind CSS**|**DaisyUI**|**Context API**|**React Icons**|**TMDB API**
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/movie-guide.git
+cd movie-guide
+
+Install dependencies:
+
+npm install
+
+Create a .env file and add your TMDB API key:
+
+VITE_TMDB_API_KEY=your_api_key_here
+
+Run the app locally:
+
+npm run dev
+
+Open in your browser:
+
+http://localhost:5173
+
+🧭 Project Structure
+
+src/
+ ├─ components/
+ │   ├─ Header/
+ │   ├─ Navigation/
+ │   ├─ RandomMovieButtonFromList/
+ │   └─ ...
+ ├─ context/
+ │   └─ MoviesContext.jsx
+ ├─ pages/
+ ├─ styles/
+ └─ main.jsx
+
