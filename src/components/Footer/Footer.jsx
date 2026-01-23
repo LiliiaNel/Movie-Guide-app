@@ -17,8 +17,8 @@ export default function Footer() {
         </div>
 
         <div className="text-center md:text-center flex-1 flex flex-col justify-center">
-          <p className="text-sm">© {new Date().getFullYear()} Movie Guide</p>
-          <p className="mt-1 text-xs text-[#cbd5e1]">Providing reliable movie info — built with ❤️</p>
+          <p className="text-sm mb-1">© {new Date().getFullYear()} Movie Guide</p>
+          <p className="text-xs text-[#cbd5e1]">Providing reliable movie info — built with ❤️</p>
         </div>
 
         <div className="flex flex-col justify-center md:justify-end items-center md:items-end text-xs gap-1">

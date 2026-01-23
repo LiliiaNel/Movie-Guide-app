@@ -16,7 +16,7 @@ export default function ReviewsItem({ review, expanded, toggleExpand }) {
 
         {/* Content */}
         <div className="flex-1">
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center justify-between gap-3 mb-3">
             <div>
               <div className="text-sm font-semibold text-[#ffb347] text-left">{author}</div>
               <div className="text-xs text-[#d9d4cc] text-left">{date}</div>
@@ -32,7 +32,7 @@ export default function ReviewsItem({ review, expanded, toggleExpand }) {
           </div>
 
           {/* Review text */}
-          <div className="mt-3">
+          <div>
             <p
               className={`text-sm text-[#e3e0dc] text-left transition-all duration-300 cursor-pointer ${
                 expanded.has(id) ? "" : "line-clamp-4"
