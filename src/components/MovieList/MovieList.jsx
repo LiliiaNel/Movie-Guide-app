@@ -16,16 +16,18 @@ export default function MovieList({movies}) {
           {movies.map((movie) => (
             <li
               key={movie.id}
+              tabIndex={0}
+              aria-label={`View details for ${movie.title}`}
               className="
                 box-border min-w-0 w-full
                 bg-yellow-400/5 text-gray-100 rounded-lg
                 shadow-[0_0_0_1px_rgba(255,179,71,0.4)]
-                transition-all duration-300 hover:bg-yellow-400/15 hover:scale-105
+                transition-all duration-300 hover:bg-yellow-400/15 hover:scale-105 focus:scale-105
                 cursor-pointer overflow-hidden
               "
             >
               <div className="min-w-0">
-                <MovieItem movie={movie} location={location} />
+                <MovieItem movie={movie} location={location}/>
               </div>
             </li>
           ))}

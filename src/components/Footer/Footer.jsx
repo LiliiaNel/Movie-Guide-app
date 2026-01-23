@@ -1,4 +1,5 @@
 import Socials from "../Socials/Socials";
+import { MdOutlineMail } from "react-icons/md";
 
 export default function Footer() {
 
@@ -15,9 +16,19 @@ export default function Footer() {
           <Socials />
         </div>
 
-        <div className="w-full md:flex-1 text-center">
+        <div className="text-center md:text-center flex-1 flex flex-col justify-center">
           <p className="text-sm">© {new Date().getFullYear()} Movie Guide</p>
           <p className="mt-1 text-xs text-[#cbd5e1]">Providing reliable movie info — built with ❤️</p>
+        </div>
+
+        <div className="flex flex-col justify-center md:justify-end items-center md:items-end text-xs gap-1">
+          <p className="m-0">Questions or feedback?</p>
+          <a
+            href="mailto:liliiaszivak@gmail.com"
+            className="flex items-center gap-1 text-[#ffb347] hover:text-[#f97316] hover:underline transition-colors duration-300"
+          >
+            <MdOutlineMail className="w-4 h-4" /> Drop me a line 
+          </a>
         </div>
       </div>
     </footer>

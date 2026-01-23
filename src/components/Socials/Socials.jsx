@@ -1,11 +1,11 @@
-import { FaFacebook, FaTelegram, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaTelegram,  FaLinkedin  } from "react-icons/fa";
 
 const base = " text-[1.8rem] transition-colors duration-300 ease-linear hover:text-[#ffb347]";
 
 const socials = [
-  { id: "facebook", href: "https://www.facebook.com/", Icon: FaFacebook, label: "Facebook" },
-  { id: "telegram", href: "https://t.me/", Icon: FaTelegram, label: "Telegram" },
-  { id: "instagram", href: "https://www.instagram.com/", Icon: FaInstagram, label: "Instagram" },
+  { id: "github", href: "https://github.com/LiliiaNel/Movie-Guide-app", Icon: FaGithub, label: "GitHub" },
+  { id: "telegram", href: "https://t.me/lilisziv", Icon: FaTelegram, label: "Telegram" },
+  { id: "linkedin", href: "https://www.linkedin.com/in/liliia-szivak/", Icon: FaLinkedin, label: "LinkedIn" },
 ];
 
 export default function Socials() {

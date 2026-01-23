@@ -7,7 +7,7 @@ It's a simple web app for browsing and exploring movies, focused on clean layout
 
 The app allows you to browse titles, open movie details, or let the Random Movie button pick something for you.
 
-All movie data is powered by the **TMDB (The Movie Database) API**.
+All movie data is powered by the [**TMDB (The Movie Database) API**](https://developer.themoviedb.org/docs/getting-started). 
 
 ---
 
