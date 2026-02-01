@@ -92,8 +92,9 @@ Clone the repository:
 
 ```bash
 
-git  clone  https://github.com/your-username/movie-guide.git
-cd  movie-guide
+git  clone https://github.com/LiliiaNel/Movie-Guide-app.git
+
+cd  Movie-Guide-app
 
 Install  dependencies:
 npm  install
